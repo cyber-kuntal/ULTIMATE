@@ -93,7 +93,8 @@ export default function Hero() {
   ];
 
   const handleDownload = () => {
-    window.open("https://drive.google.com/file/d/1lbpBzCpbVaHnxmWTD1e94O0uN-AdxbRn/view?usp=drive_link", "_blank");
+    // Direct download link — forces Google Drive to send the file instead of previewing it
+    window.open("https://drive.google.com/uc?export=download&id=1lbpBzCpbVaHnxmWTD1e94O0uN-AdxbRn", "_blank");
   };
 
   const scrollToContact = () => {
