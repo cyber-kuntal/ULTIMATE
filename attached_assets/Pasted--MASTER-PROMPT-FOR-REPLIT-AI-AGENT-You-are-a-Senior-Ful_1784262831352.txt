@@ -1,0 +1,469 @@
+# MASTER PROMPT FOR REPLIT AI AGENT
+
+You are a Senior Full-Stack Engineer, Senior UI/UX Designer, Senior Three.js Developer, GSAP Animation Expert, and Creative Director.
+
+Your task is to build a premium, production-ready, futuristic 3D cybersecurity portfolio website that looks and feels like a $20,000+ professionally designed portfolio.
+
+This is NOT a template.
+
+This is NOT a landing page.
+
+This is NOT a basic portfolio.
+
+The website should feel like an elite Cyber Command Center with cinematic animations, immersive 3D graphics, premium transitions, smooth interactions, and world-class UI/UX.
+
+------------------------------------------------------------
+FIRST TASK (MANDATORY)
+------------------------------------------------------------
+
+DO NOT start coding immediately.
+
+First, ask me for ALL the information you need.
+
+Create a step-by-step setup wizard inside the Replit AI chat.
+
+Ask only one section at a time and wait for my response before moving to the next section.
+
+The sections should be:
+
+STEP 1 — Personal Information
+
+Ask me for:
+
+• Full Name
+• Professional Title
+• Short Bio
+• Current Degree
+• University/College
+• Expected Graduation Year
+• Current Location
+
+------------------------------------------------------------
+
+STEP 2 — Contact Information
+
+Ask me for:
+
+• Professional Email
+• Phone Number
+• LinkedIn URL
+• GitHub URL
+• Resume PDF
+• Portfolio URL (if any)
+
+Do not use placeholders if I provide real data.
+
+------------------------------------------------------------
+
+STEP 3 — Profile Photo
+
+Ask me to upload:
+
+• Professional Photo
+
+If unavailable,
+
+generate a premium placeholder avatar until I upload one.
+
+------------------------------------------------------------
+
+STEP 4 — Education
+
+Ask for:
+
+• School
+• Higher Secondary
+• College
+• Degree
+• CGPA (optional)
+
+------------------------------------------------------------
+
+STEP 5 — Certifications
+
+Ask me to upload
+
+or list
+
+all certifications.
+
+Generate beautiful certificate cards automatically.
+
+------------------------------------------------------------
+
+STEP 6 — Skills
+
+Ask me to confirm my skills.
+
+Current Skills:
+
+Python
+
+Java
+
+JavaScript
+
+TypeScript
+
+React
+
+HTML
+
+CSS
+
+Tailwind
+
+Linux
+
+Windows
+
+Networking
+
+Wireshark
+
+Nmap
+
+Burp Suite
+
+Metasploit
+
+Digital Forensics
+
+Cybercrime Investigation
+
+Threat Intelligence
+
+OSINT
+
+OWASP Top 10
+
+Incident Response
+
+Git
+
+GitHub
+
+Allow me to edit the list.
+
+------------------------------------------------------------
+
+STEP 7 — Experience
+
+Ask me to provide
+
+my work experience
+
+internships
+
+research
+
+freelancing
+
+or cybercrime investigation experience.
+
+------------------------------------------------------------
+
+STEP 8 — Teaching
+
+Ask me to verify this information.
+
+Platform:
+
+mytaptutor.in
+
+Role:
+
+Online Tutor
+
+Then ask:
+
+Do you want to edit anything?
+
+Teaching Details:
+
+CBSE
+
+Class 1–10
+
+Science
+
+Mathematics
+
+Computer Science
+
+ICSE
+
+Class 1–10
+
+Science
+
+Mathematics
+
+Computer Science
+
+West Bengal Board
+
+Class 1–7
+
+All Subjects
+
+Class 8–10
+
+Science Group
+
+Computer Science
+
+Class 11–12
+
+Computer Science
+
+------------------------------------------------------------
+
+STEP 9 — Social Links
+
+Ask for:
+
+Instagram
+
+Twitter/X
+
+YouTube
+
+Medium
+
+Dev.to
+
+Hack The Box
+
+TryHackMe
+
+LeetCode
+
+HackerRank
+
+Codeforces
+
+Only include the ones I provide.
+
+------------------------------------------------------------
+
+STEP 10 — Final Review
+
+Show me every detail collected.
+
+Ask for approval.
+
+Only after my approval,
+
+start generating the website.
+
+------------------------------------------------------------
+WEBSITE DESIGN
+------------------------------------------------------------
+
+Create a world-class futuristic Cybersecurity portfolio.
+
+Theme:
+
+Cyberpunk
+
+Military Intelligence
+
+SOC Dashboard
+
+Digital Forensics Command Center
+
+Dark Hacker Aesthetic
+
+Apple-level smoothness
+
+------------------------------------------------------------
+TECH STACK
+------------------------------------------------------------
+
+React 19
+
+TypeScript
+
+Vite
+
+Tailwind CSS
+
+Three.js
+
+React Three Fiber
+
+Drei
+
+GSAP
+
+Framer Motion
+
+Lenis
+
+Shadcn UI
+
+Lucide Icons
+
+React Icons
+
+HTML5
+
+CSS3
+
+JavaScript
+
+------------------------------------------------------------
+3D EFFECTS
+------------------------------------------------------------
+
+Rotating Globe
+
+Radar Scanner
+
+Interactive Hexagons
+
+Particle System
+
+Network Connections
+
+Mouse Reactive Camera
+
+Volumetric Lighting
+
+Bloom
+
+Glassmorphism
+
+Grid Background
+
+Binary Rain
+
+Cyber HUD
+
+Floating Panels
+
+------------------------------------------------------------
+SECTIONS
+------------------------------------------------------------
+
+Hero
+
+Profile
+
+Education
+
+Coursework
+
+Skills
+
+Expertise
+
+Experience
+
+Certifications
+
+Teaching
+
+Contact
+
+Footer
+
+------------------------------------------------------------
+HERO
+------------------------------------------------------------
+
+Headline
+
+"I READ THE SIGNALS.
+I SECURE THE FUTURE."
+
+Typing Animation
+
+Cybersecurity Engineer
+
+Cybercrime Investigator
+
+SOC Analyst
+
+Digital Forensics
+
+Security Researcher
+
+------------------------------------------------------------
+ANIMATIONS
+------------------------------------------------------------
+
+GSAP
+
+Framer Motion
+
+Three.js
+
+Every section
+
+Fade
+
+Scale
+
+Rotate
+
+Blur
+
+Depth
+
+Parallax
+
+3D Reveal
+
+Mouse Follow
+
+Smooth Scroll
+
+------------------------------------------------------------
+RESPONSIVE
+------------------------------------------------------------
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+------------------------------------------------------------
+PERFORMANCE
+------------------------------------------------------------
+
+Lighthouse 90+
+
+SEO Ready
+
+Accessible
+
+Lazy Loading
+
+Code Splitting
+
+Fast Loading
+
+------------------------------------------------------------
+FINAL REQUIREMENTS
+------------------------------------------------------------
+
+Use reusable React components.
+
+Use proper folder structure.
+
+Write maintainable TypeScript code.
+
+Comment important code.
+
+Optimize every animation.
+
+Ensure smooth 60 FPS performance.
+
+Deploy-ready for Vercel.
+
+The final result should look like an elite cybersecurity command center rather than a normal portfolio website, with premium animations, immersive 3D visuals, and a professional user experience that can compete with the best personal portfolio websites on the internet.
