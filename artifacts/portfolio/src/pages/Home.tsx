@@ -6,7 +6,6 @@ import Profile from '@/components/sections/Profile';
 import Education from '@/components/sections/Education';
 import Skills from '@/components/sections/Skills';
 import Certifications from '@/components/sections/Certifications';
-import Teaching from '@/components/sections/Teaching';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/sections/Footer';
 
@@ -47,7 +46,6 @@ export default function Home() {
         <Education />
         <Skills />
         <Certifications />
-        <Teaching />
         <Contact />
       </main>
 

@@ -25,7 +25,6 @@ export default function NavBar() {
     { name: 'Education', id: 'education' },
     { name: 'Skills', id: 'skills' },
     { name: 'Certifications', id: 'certifications' },
-    { name: 'Teaching', id: 'teaching' },
     { name: 'Contact', id: 'contact' },
   ];
 
