@@ -92,10 +92,8 @@ export default function Hero() {
     "Security Researcher"
   ];
 
-  const handleDownload = () => {
-    // Direct download link — forces Google Drive to send the file instead of previewing it
-    window.open("https://drive.google.com/uc?export=download&id=1lbpBzCpbVaHnxmWTD1e94O0uN-AdxbRn", "_blank");
-  };
+  // Resume — opens Google Drive viewer in a new tab (most reliable cross-browser approach)
+  const RESUME_URL = "https://drive.google.com/file/d/1lbpBzCpbVaHnxmWTD1e94O0uN-AdxbRn/view?usp=sharing";
 
   const scrollToContact = () => {
     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -161,14 +159,16 @@ export default function Hero() {
             transition={{ delay: 1, duration: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
-            <button
-              onClick={handleDownload}
+            <a
+              href={RESUME_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-cyber-green text-bg-primary font-bold font-mono tracking-wider overflow-hidden rounded-sm transition-all hover:shadow-[0_0_30px_rgba(0,255,135,0.6)] w-full sm:w-auto"
             >
               <div className="absolute inset-0 w-full h-full bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
               <Download className="w-5 h-5 relative z-10" />
               <span className="relative z-10">DECRYPT_RESUME</span>
-            </button>
+            </a>
 
             <button
               onClick={scrollToContact}
