@@ -40,7 +40,7 @@ function SniperScope({ containerRef }: { containerRef: React.RefObject<HTMLEleme
         transform: 'translate(-50%, -50%)',
       }}
     >
-      <svg width="120" height="120" viewBox="0 0 120 120" fill="none">
+      <svg width="72" height="72" viewBox="0 0 120 120" fill="none">
         {/* Outer ring */}
         <circle cx="60" cy="60" r="56" stroke="#00d4ff" strokeWidth="1" strokeOpacity="0.6" />
         {/* Middle ring */}
