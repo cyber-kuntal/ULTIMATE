@@ -82,7 +82,7 @@ export default function ThreeCanvas() {
           failIfMajorPerformanceCaveat: false,
         }}
         onCreated={({ gl }) => {
-          gl.setClearColor('#031A18', 0); // transparent so CSS bg shows through
+          gl.setClearColor('#041A1F', 0); // transparent so CSS bg shows through
         }}
       >
         <Suspense fallback={null}>

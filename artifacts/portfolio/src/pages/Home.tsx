@@ -11,35 +11,27 @@ import Footer from '@/components/sections/Footer';
 
 export default function Home() {
   useEffect(() => {
-    // Initialize smooth scrolling
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
-      touchMultiplier: 2,
-      infinite: false,
+      duration: 1.1,
+      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-
-    requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg-deep selection:bg-neon-primary/30 selection:text-text-primary">
+    <div className="min-h-screen bg-bg-deep">
       <NavBar />
-      
       <main>
         <Hero />
         <Profile />
@@ -48,7 +40,6 @@ export default function Home() {
         <Certifications />
         <Contact />
       </main>
-
       <Footer />
     </div>
   );

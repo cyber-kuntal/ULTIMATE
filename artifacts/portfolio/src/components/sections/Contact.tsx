@@ -51,7 +51,7 @@ export default function Contact() {
             <div className="p-0.5 rounded-none bg-neon-primary shadow-[0_0_15px_rgba(0,255,198,0.2)]">
               <div className="bg-bg-deep rounded-none h-full flex flex-col overflow-hidden">
                 {/* Terminal Header */}
-                <div className="bg-[#031A18] border-b border-neon-primary px-4 py-3 flex items-center gap-4">
+                <div className="bg-bg-deep border-b border-neon-primary px-4 py-3 flex items-center gap-4">
                   <div className="flex gap-2">
                     <div className="w-3 h-3 rounded-none bg-neon-primary/40 border border-neon-primary" />
                     <div className="w-3 h-3 rounded-none bg-neon-soft/40 border border-neon-soft" />
