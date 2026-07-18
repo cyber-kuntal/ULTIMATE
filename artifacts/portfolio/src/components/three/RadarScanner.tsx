@@ -21,7 +21,7 @@ export default function RadarScanner() {
   // Custom shader for the radar sweep gradient
   const sweepMaterial = useMemo(() => new THREE.ShaderMaterial({
     uniforms: {
-      color: { value: new THREE.Color('#00ff87') }
+      color: { value: new THREE.Color('#00FFC6') }
     },
     vertexShader: `
       varying vec2 vUv;
@@ -56,25 +56,25 @@ export default function RadarScanner() {
   return (
     <group position={[0, -2, -15]} rotation={[-Math.PI / 2.5, 0, 0]}>
       {/* Grid lines */}
-      <gridHelper args={[40, 20, '#00d4ff', '#0a1628']} rotation={[Math.PI / 2, 0, 0]} />
+      <gridHelper args={[40, 20, '#00FFC6', '#031A18']} rotation={[Math.PI / 2, 0, 0]} />
       
       <group ref={radarRef}>
         {/* Inner concentric rings */}
         {[5, 10, 15].map((radius, i) => (
           <mesh key={i} position={[0, 0, 0.01]}>
             <ringGeometry args={[radius - 0.05, radius, 64]} />
-            <meshBasicMaterial color="#00ff87" transparent opacity={0.2} />
+            <meshBasicMaterial color="#00FFC6" transparent opacity={0.2} />
           </mesh>
         ))}
         
         {/* Crosshairs */}
         <mesh position={[0, 0, 0.02]}>
           <planeGeometry args={[30, 0.05]} />
-          <meshBasicMaterial color="#00ff87" transparent opacity={0.3} />
+          <meshBasicMaterial color="#00FFC6" transparent opacity={0.3} />
         </mesh>
         <mesh position={[0, 0, 0.02]} rotation={[0, 0, Math.PI / 2]}>
           <planeGeometry args={[30, 0.05]} />
-          <meshBasicMaterial color="#00ff87" transparent opacity={0.3} />
+          <meshBasicMaterial color="#00FFC6" transparent opacity={0.3} />
         </mesh>
       </group>
 

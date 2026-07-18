@@ -1,4 +1,4 @@
-import React, { Suspense, useRef, useState, useEffect, Component, ReactNode } from 'react';
+import React, { Suspense, useState, useEffect, Component, ReactNode } from 'react';
 
 // ─── Error Boundary ──────────────────────────────────────────────────────────
 interface EBState { hasError: boolean }
@@ -6,7 +6,6 @@ class CanvasErrorBoundary extends Component<{ children: ReactNode; fallback: Rea
   state: EBState = { hasError: false };
   static getDerivedStateFromError() { return { hasError: true }; }
   componentDidCatch(error: Error) {
-    // Silently absorb WebGL errors
     console.debug('[HeroCanvas] WebGL unavailable, using CSS fallback.', error.message);
   }
   render() {
@@ -17,76 +16,100 @@ class CanvasErrorBoundary extends Component<{ children: ReactNode; fallback: Rea
 // ─── CSS-only animated background (no WebGL) ─────────────────────────────────
 export function CSSHeroBg() {
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden bg-bg-primary">
-      {/* Animated grid */}
-      <div className="absolute inset-0" style={{
-        backgroundImage: `
-          linear-gradient(rgba(0,212,255,0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(0,212,255,0.06) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px',
+    <div className="absolute inset-0 z-0 overflow-hidden" style={{ background: '#031A18' }}>
+
+      {/* Animated Hexagon Grid */}
+      <div className="absolute inset-0 pointer-events-none" style={{
+        backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='104' viewBox='0 0 60 104' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0l25.98 15v30L30 60 4.02 45V15z' fill='none' stroke='%2300FFC6' stroke-width='0.8' stroke-opacity='0.12'/%3E%3Cpath d='M30 52l25.98 15v30L30 112 4.02 97V67z' fill='none' stroke='%2300FFC6' stroke-width='0.8' stroke-opacity='0.12'/%3E%3C/svg%3E")`,
+        backgroundSize: '60px 104px',
+        animation: 'hexPulse 5s ease-in-out infinite',
       }} />
 
       {/* Glow orbs */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full pointer-events-none" style={{
-        background: 'radial-gradient(circle, rgba(0,212,255,0.12) 0%, transparent 70%)',
-        animation: 'orbFloat 7s ease-in-out infinite',
+      <div className="absolute pointer-events-none" style={{
+        top: '-20%', right: '-15%',
+        width: '600px', height: '600px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(0,255,198,0.12) 0%, transparent 70%)',
+        animation: 'orbFloat 8s ease-in-out infinite',
       }} />
-      <div className="absolute bottom-1/3 right-1/4 w-80 h-80 rounded-full pointer-events-none" style={{
-        background: 'radial-gradient(circle, rgba(0,255,135,0.08) 0%, transparent 70%)',
-        animation: 'orbFloat 9s ease-in-out infinite reverse',
+      <div className="absolute pointer-events-none" style={{
+        bottom: '-20%', left: '-15%',
+        width: '500px', height: '500px', borderRadius: '50%',
+        background: 'radial-gradient(circle, rgba(124,255,178,0.08) 0%, transparent 70%)',
+        animation: 'orbFloat 10s ease-in-out infinite reverse',
       }} />
 
-      {/* Radar rings */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none">
-        {[0, 15, 30, 45].map(pct => (
-          <div key={pct} className="absolute rounded-full border border-cyber-cyan/10"
-            style={{ inset: `${pct}%` }} />
-        ))}
-        <div className="absolute inset-0 origin-center rounded-full" style={{
-          background: 'conic-gradient(from 0deg, transparent 75%, rgba(0,212,255,0.25) 100%)',
+      {/* Radar sweep */}
+      <div className="absolute pointer-events-none" style={{
+        top: '50%', left: '50%',
+        width: '800px', height: '800px',
+        transform: 'translate(-50%, -50%)',
+      }}>
+        <div style={{
+          position: 'absolute', inset: 0, borderRadius: '50%',
+          background: 'conic-gradient(from 0deg, transparent 75%, rgba(0,255,198,0.14) 100%)',
           animation: 'radarSpin 4s linear infinite',
+          transformOrigin: 'center',
         }} />
+        {[0, 20, 40, 60].map(pct => (
+          <div key={pct} style={{
+            position: 'absolute',
+            inset: `${pct}%`,
+            borderRadius: '50%',
+            border: '1px solid rgba(0,255,198,0.10)',
+          }} />
+        ))}
       </div>
 
-      {/* Floating particles */}
-      {Array.from({ length: 50 }, (_, i) => {
-        const size   = (((i * 7) % 4) + 1);
-        const left   = ((i * 17 + 3) % 100);
-        const top    = ((i * 13 + 7) % 100);
-        const dur    = ((i * 3) % 8) + 5;
-        const delay  = ((i * 2) % 5);
-        const color  = i % 3 === 0 ? '#00ff87' : '#00d4ff';
-        return (
-          <div key={i} className="absolute rounded-full pointer-events-none" style={{
-            width: size + 'px', height: size + 'px',
-            left: left + '%', top: top + '%',
-            background: color,
-            opacity: 0.15 + (i % 5) * 0.08,
-            animation: `particleFloat${i % 3} ${dur}s ease-in-out ${delay}s infinite`,
-          }} />
-        );
-      })}
+      {/* Holographic HUD corner brackets */}
+      <div className="absolute inset-6 pointer-events-none">
+        <div style={{ position: 'absolute', top: 0, left: 0, width: 32, height: 32, borderTop: '2px solid #00FFC6', borderLeft: '2px solid #00FFC6' }} />
+        <div style={{ position: 'absolute', top: 0, right: 0, width: 32, height: 32, borderTop: '2px solid #00FFC6', borderRight: '2px solid #00FFC6' }} />
+        <div style={{ position: 'absolute', bottom: 0, left: 0, width: 32, height: 32, borderBottom: '2px solid #00FFC6', borderLeft: '2px solid #00FFC6' }} />
+        <div style={{ position: 'absolute', bottom: 0, right: 0, width: 32, height: 32, borderBottom: '2px solid #00FFC6', borderRight: '2px solid #00FFC6' }} />
+      </div>
 
-      {/* Binary rain strips */}
-      {Array.from({ length: 8 }, (_, i) => (
-        <div key={i} className="absolute top-0 font-mono text-cyber-green/10 text-xs select-none pointer-events-none"
-          style={{
-            left: (i * 13 + 5) + '%',
-            animation: `binaryRain ${6 + i}s linear ${i * 0.8}s infinite`,
-            whiteSpace: 'pre-line',
-            letterSpacing: '0.1em',
-          }}>
-          {Array.from({ length: 20 }, (_, j) => (Math.random() > 0.5 ? '1' : '0')).join('\n')}
+      {/* Horizontal scan line */}
+      <div className="absolute left-0 right-0 pointer-events-none" style={{
+        height: '2px',
+        background: 'rgba(0,255,198,0.5)',
+        boxShadow: '0 0 10px rgba(0,255,198,0.8)',
+        animation: 'scanLineAnim 3s linear infinite',
+      }} />
+
+      {/* Floating data nodes */}
+      <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ opacity: 0.25 }}>
+        <path d="M100 200 L300 150 L500 400 L800 300" fill="none" stroke="#00FFC6" strokeWidth="1" strokeDasharray="5,5" />
+        <path d="M200 600 L400 500 L700 700 L900 400" fill="none" stroke="#7CFFB2" strokeWidth="1" strokeDasharray="5,5" />
+        {([
+          [100,200],[300,150],[500,400],[800,300],
+          [200,600],[400,500],[700,700],[900,400],
+        ] as [number,number][]).map(([cx,cy],i) => (
+          <circle key={i} cx={cx} cy={cy} r="3" fill="#00FFC6" />
+        ))}
+      </svg>
+
+      {/* Binary rain */}
+      {Array.from({ length: 12 }, (_, i) => (
+        <div key={i} className="absolute top-0 select-none pointer-events-none" style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          color: 'rgba(124,255,178,0.18)',
+          fontSize: '12px',
+          left: `${(i * 9 + 5) % 100}%`,
+          animation: `matrixRain ${5 + (i % 5)}s linear ${i * 0.5}s infinite`,
+          whiteSpace: 'pre-line',
+          letterSpacing: '0.1em',
+        }}>
+          {Array.from({ length: 25 }, (_, j) => ((i + j) % 2 === 0 ? '1' : '0')).join('\n')}
         </div>
       ))}
 
       <style>{`
-        @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-24px) scale(1.04)} }
-        @keyframes radarSpin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-        @keyframes particleFloat0 { 0%,100%{transform:translate(0,0);opacity:0.15} 50%{transform:translate(12px,-18px);opacity:0.5} }
-        @keyframes particleFloat1 { 0%,100%{transform:translate(0,0);opacity:0.2}  50%{transform:translate(-10px,14px);opacity:0.45} }
-        @keyframes particleFloat2 { 0%,100%{transform:translate(0,0);opacity:0.1}  50%{transform:translate(8px,-10px);opacity:0.4} }
-        @keyframes binaryRain { 0%{transform:translateY(-100%);opacity:0} 20%{opacity:1} 80%{opacity:0.5} 100%{transform:translateY(120vh);opacity:0} }
+        @keyframes hexPulse    { 0%,100%{opacity:0.8} 50%{opacity:1} }
+        @keyframes orbFloat    { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-24px) scale(1.04)} }
+        @keyframes radarSpin   { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+        @keyframes scanLineAnim{ 0%{top:-2px;opacity:0} 10%{opacity:1} 90%{opacity:0.6} 100%{top:100%;opacity:0} }
+        @keyframes matrixRain  { 0%{transform:translateY(-100%);opacity:0} 10%{opacity:1} 90%{opacity:0.4} 100%{transform:translateY(110vh);opacity:0} }
       `}</style>
     </div>
   );
@@ -100,7 +123,6 @@ export default function HeroCanvas() {
   const [webglOk, setWebglOk] = useState(false);
 
   useEffect(() => {
-    // Async detection: only enable Three.js after confirming WebGL works
     let ok = false;
     try {
       const testCanvas = document.createElement('canvas');
@@ -108,7 +130,6 @@ export default function HeroCanvas() {
       if (gl instanceof WebGLRenderingContext && !gl.isContextLost()) {
         ok = true;
       }
-      // Clean up
       const ext = (gl as WebGLRenderingContext | null)?.getExtension('WEBGL_lose_context');
       ext?.loseContext();
     } catch {
@@ -119,7 +140,6 @@ export default function HeroCanvas() {
 
   return (
     <>
-      {/* CSS fallback always renders — 3D canvas layers on top if WebGL available */}
       <CSSHeroBg />
       {webglOk && (
         <CanvasErrorBoundary fallback={null}>

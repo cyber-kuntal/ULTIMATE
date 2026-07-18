@@ -35,7 +35,7 @@ export default function ParticleField() {
       </bufferGeometry>
       <pointsMaterial
         size={0.03}
-        color="#00d4ff"
+        color="#00FFC6"
         transparent
         opacity={0.4}
         sizeAttenuation

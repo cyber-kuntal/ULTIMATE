@@ -48,9 +48,9 @@ export default function TypingAnimation({
   }, [text, isDeleting, stringIndex, strings, typingSpeed, deletingSpeed, delayBetween]);
 
   return (
-    <span className="font-mono text-cyber-green">
+    <span className="font-mono text-neon-primary drop-shadow-[0_0_8px_rgba(0,255,198,0.8)]">
       {text}
-      <span className="animate-pulse">_</span>
+      <span className="animate-pulse font-bold ml-1">_</span>
     </span>
   );
 }

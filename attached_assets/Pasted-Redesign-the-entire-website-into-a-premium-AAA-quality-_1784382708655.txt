@@ -1,0 +1,29 @@
+Redesign the entire website into a premium AAA-quality futuristic cybersecurity portfolio. Do NOT rebuild the content or remove existing sections. Keep all current information, layout, and functionality, but completely upgrade the visual design and animations.
+
+Requirements:
+
+• Transform the website into an immersive 3D cyber command center.
+• Use Three.js + React Three Fiber + Drei for interactive 3D backgrounds.
+• Replace the current background with a dynamic dark greenish-blue cyber texture using shades like #031A18, #062E2A, #0B4D45, #00FFC6, and #7CFFB2.
+• Add an animated wireframe globe with glowing network connections.
+• Add floating particles, animated hexagons, radar scanning, digital grid, binary rain, and subtle holographic HUD elements.
+• Create a mouse-reactive 3D camera with smooth parallax movement.
+• Add volumetric lighting, bloom, glow, fog, and depth effects.
+• Use GSAP and Framer Motion for cinematic scroll animations, page transitions, and section reveals.
+• Apply premium glassmorphism cards with neon cyan/green borders and soft reflections.
+• Add magnetic buttons, animated hover effects, cursor glow, and interactive lighting.
+• Ensure every section has smooth entrance animations and premium micro-interactions.
+• Use Lenis for buttery smooth scrolling.
+• Maintain excellent readability and accessibility despite the animated background.
+• Optimize all Three.js assets for high performance (60 FPS) with lazy loading and proper code splitting.
+• The design should resemble an elite cybersecurity operations center, not a generic portfolio.
+• Keep the website fully responsive on desktop, tablet, and mobile.
+• Do not remove or rewrite any of my content unless required for layout improvements.
+• Preserve all existing functionality while upgrading only the UI, UX, animations, and 3D visuals.
+
+After making all changes:
+1. Test the project for errors.
+2. Fix any build or runtime issues.
+3. Ensure the project builds successfully.
+4. Commit all changes.
+5. Push the latest version to the connected GitHub repository.

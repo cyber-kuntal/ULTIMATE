@@ -37,7 +37,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-bg-primary selection:bg-cyber-cyan/30 selection:text-white">
+    <div className="min-h-screen bg-bg-deep selection:bg-neon-primary/30 selection:text-text-primary">
       <NavBar />
       
       <main>
