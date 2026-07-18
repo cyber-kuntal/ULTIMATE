@@ -4,17 +4,32 @@ import GlowCard from '@/components/ui/GlowCard';
 import { Mail, Phone, Linkedin, Github, Download, Send, Terminal } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+const TO_EMAIL = 'kuntalkumar2007@gmail.com';
+
 export default function Contact() {
-  const [formState, setFormState] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [formState, setFormState] = useState<'idle' | 'success'>('idle');
+  const [name, setName]       = useState('');
+  const [email, setEmail]     = useState('');
+  const [message, setMessage] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setFormState('submitting');
-    // Simulate network request
+
+    const subject = encodeURIComponent(`[Portfolio] Message from ${name}`);
+    const body    = encodeURIComponent(
+      `Name:    ${name}\nEmail:   ${email}\n\n${message}`
+    );
+    // Opens the visitor's email client with fields pre-filled
+    window.open(`mailto:${TO_EMAIL}?subject=${subject}&body=${body}`, '_blank');
+
+    setFormState('success');
+    // Reset after 4 s
     setTimeout(() => {
-      setFormState('success');
-      setTimeout(() => setFormState('idle'), 3000);
-    }, 1500);
+      setFormState('idle');
+      setName('');
+      setEmail('');
+      setMessage('');
+    }, 4000);
   };
 
   const handleDownload = () => {
@@ -59,6 +74,8 @@ export default function Contact() {
                     <input 
                       type="text" 
                       required
+                      value={name}
+                      onChange={e => setName(e.target.value)}
                       className="w-full bg-transparent border-b border-border/50 focus:border-cyber-cyan text-white pb-2 outline-none transition-colors placeholder:text-text-muted/30"
                       placeholder='"Enter your name"'
                     />
@@ -71,6 +88,8 @@ export default function Contact() {
                     <input 
                       type="email" 
                       required
+                      value={email}
+                      onChange={e => setEmail(e.target.value)}
                       className="w-full bg-transparent border-b border-border/50 focus:border-cyber-cyan text-white pb-2 outline-none transition-colors placeholder:text-text-muted/30"
                       placeholder='"Enter your email"'
                     />
@@ -83,31 +102,28 @@ export default function Contact() {
                     <textarea 
                       required
                       rows={4}
+                      value={message}
+                      onChange={e => setMessage(e.target.value)}
                       className="w-full bg-bg-card/50 border border-border/50 focus:border-cyber-cyan text-white p-3 rounded-sm outline-none transition-colors placeholder:text-text-muted/30 resize-none mt-2"
                       placeholder="Write your message here..."
                     />
                   </div>
 
                   <button 
-                    disabled={formState !== 'idle'}
+                    type="submit"
+                    disabled={formState === 'success'}
                     className={`w-full py-4 flex items-center justify-center gap-3 font-bold tracking-widest uppercase transition-all duration-300 border ${
-                      formState === 'idle' 
+                      formState === 'idle'
                         ? 'bg-cyber-cyan/10 border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-bg-primary hover:shadow-[0_0_20px_rgba(0,212,255,0.4)]'
-                        : formState === 'submitting'
-                        ? 'bg-bg-card border-text-muted text-text-muted cursor-not-allowed'
                         : 'bg-cyber-green border-cyber-green text-bg-primary'
                     }`}
                   >
-                    {formState === 'idle' && (
+                    {formState === 'idle' ? (
                       <>
                         <Terminal className="w-5 h-5" />
                         EXECUTE_SEND
                       </>
-                    )}
-                    {formState === 'submitting' && (
-                      <span className="animate-pulse">ENCRYPTING_PAYLOAD...</span>
-                    )}
-                    {formState === 'success' && (
+                    ) : (
                       <>
                         <Send className="w-5 h-5" />
                         TRANSMISSION_SUCCESSFUL
