@@ -174,26 +174,57 @@ export default function Hero() {
             transition={{ delay: 1, duration: 0.6 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-6"
           >
+            {/* DECRYPT_RESUME — electric purple glassmorphism */}
             <motion.a
               href={RESUME_URL}
               target="_blank"
               rel="noopener noreferrer"
-              animate={{ x: mousePos.x, y: mousePos.y }}
+              animate={{ x: mousePos.x * 0.3, y: mousePos.y * 0.3 }}
               transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-              className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-neon-primary text-bg-deep font-bold font-mono tracking-wider overflow-hidden rounded-none transition-shadow hover:shadow-[0_0_30px_rgba(0,255,198,0.8)] w-full sm:w-auto"
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="group relative flex items-center justify-center gap-3 px-8 py-4 font-bold font-mono tracking-wider overflow-hidden w-full sm:w-auto"
+              style={{
+                background: 'linear-gradient(135deg, rgba(168,85,247,0.18) 0%, rgba(168,85,247,0.08) 100%)',
+                border: '1px solid rgba(168,85,247,0.55)',
+                boxShadow: '0 0 18px rgba(168,85,247,0.35), inset 0 0 18px rgba(168,85,247,0.06)',
+                backdropFilter: 'blur(12px)',
+                color: '#F5F7FA',
+                animation: 'purpleGlow 2.5s ease-in-out infinite',
+              }}
             >
-              <div className="absolute inset-0 w-full h-full bg-white/30 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <Download className="w-5 h-5 relative z-10" />
-              <span className="relative z-10">DECRYPT_RESUME</span>
+              {/* Shine sweep on hover */}
+              <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out" />
+              {/* Cyan top-left accent line */}
+              <div className="absolute top-0 left-0 w-8 h-[1px] bg-[#00FFC6]/60" />
+              <div className="absolute top-0 left-0 w-[1px] h-8 bg-[#00FFC6]/60" />
+              <Download className="w-5 h-5 relative z-10 text-[#A855F7] group-hover:text-[#D099FF] transition-colors" />
+              <span className="relative z-10 text-[#F5F7FA] group-hover:text-white transition-colors">DECRYPT_RESUME</span>
             </motion.a>
 
-            <button
+            {/* INITIATE_CONTACT — electric purple outline */}
+            <motion.button
               onClick={scrollToContact}
-              className="group relative flex items-center justify-center gap-3 px-8 py-4 bg-bg-deep/50 text-neon-primary border border-neon-primary font-bold font-mono tracking-wider overflow-hidden rounded-none transition-all hover:bg-neon-primary hover:text-bg-deep hover:shadow-[0_0_20px_rgba(0,255,198,0.4)] w-full sm:w-auto backdrop-blur-sm"
+              animate={{ x: mousePos.x * 0.2, y: mousePos.y * 0.2 }}
+              transition={{ type: "spring", stiffness: 120, damping: 15, mass: 0.1 }}
+              whileHover={{ scale: 1.04 }}
+              whileTap={{ scale: 0.97 }}
+              className="group relative flex items-center justify-center gap-3 px-8 py-4 font-bold font-mono tracking-wider overflow-hidden w-full sm:w-auto"
+              style={{
+                background: 'rgba(168,85,247,0.06)',
+                border: '1px solid rgba(168,85,247,0.40)',
+                boxShadow: '0 0 10px rgba(168,85,247,0.2)',
+                backdropFilter: 'blur(12px)',
+                color: '#D099FF',
+              }}
             >
-              <Terminal className="w-5 h-5 group-hover:text-bg-deep" />
-              <span>INITIATE_CONTACT</span>
-            </button>
+              <div className="absolute inset-0 bg-gradient-to-r from-[rgba(168,85,247,0.15)] to-[rgba(0,255,198,0.06)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Cyan bottom-right accent line */}
+              <div className="absolute bottom-0 right-0 w-8 h-[1px] bg-[#00FFC6]/60" />
+              <div className="absolute bottom-0 right-0 w-[1px] h-8 bg-[#00FFC6]/60" />
+              <Terminal className="w-5 h-5 relative z-10 text-[#A855F7] group-hover:text-[#D099FF] transition-colors" />
+              <span className="relative z-10 group-hover:text-white transition-colors">INITIATE_CONTACT</span>
+            </motion.button>
           </motion.div>
         </motion.div>
       </div>

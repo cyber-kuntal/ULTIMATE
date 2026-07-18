@@ -42,6 +42,7 @@
   --color-neon-soft: var(--neon-soft);
   --color-text-primary: var(--text-primary);
   --color-text-muted: var(--text-muted);
+  --color-electric-purple: var(--electric-purple);
 
   --font-sans: 'Inter', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
@@ -54,12 +55,13 @@
 }
 
 :root {
-  --bg-deep: #031A18;
+  --bg-deep: #041A1F;
   --bg-mid: #062E2A;
   --bg-card: #0B4D45;
   --neon-primary: #00FFC6;
   --neon-soft: #7CFFB2;
-  --text-primary: #E0FFF8;
+  --electric-purple: #A855F7;
+  --text-primary: #F5F7FA;
   --text-muted: #4A9E8E;
 
   /* DARK MODE ONLY BY DEFAULT */
@@ -208,4 +210,9 @@
   20% { opacity: 1; }
   80% { opacity: 0.5; }
   100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes purpleGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(168,85,247,0.35), inset 0 0 18px rgba(168,85,247,0.06); }
+  50%       { box-shadow: 0 0 32px rgba(168,85,247,0.55), 0 0 60px rgba(168,85,247,0.20), inset 0 0 24px rgba(168,85,247,0.10); }
 }
